@@ -12,27 +12,42 @@ const Index = () => {
       title: 'Персональный брендинг',
       description: 'Создание уникального образа эксперта и позиционирование на рынке',
       icon: 'Sparkles',
-      features: ['Стратегия позиционирования', 'Создание контента', 'Визуальный стиль', 'Tone of voice']
+      features: [
+        { text: 'Стратегия позиционирования', icon: 'Compass' },
+        { text: 'Создание контента', icon: 'FileText' },
+        { text: 'Визуальный стиль', icon: 'Palette' },
+        { text: 'Tone of voice', icon: 'MessageSquare' }
+      ]
     },
     {
       title: 'Коучинг 1:1',
       description: 'Индивидуальные сессии для достижения ваших целей и прорывов',
       icon: 'Target',
-      features: ['Личная трансформация', 'Бизнес-цели', 'Преодоление блоков', 'План действий']
+      features: [
+        { text: 'Личная трансформация', icon: 'Sparkle' },
+        { text: 'Бизнес-цели', icon: 'TrendingUp' },
+        { text: 'Преодоление блоков', icon: 'Unlock' },
+        { text: 'План действий', icon: 'ListChecks' }
+      ]
     },
     {
       title: 'Онлайн-курсы',
       description: 'Авторские программы для масштабирования вашей экспертности',
       icon: 'GraduationCap',
-      features: ['Создание программы', 'Упаковка курса', 'Продажи и воронки', 'Автоматизация']
+      features: [
+        { text: 'Создание программы', icon: 'BookOpen' },
+        { text: 'Упаковка курса', icon: 'Package' },
+        { text: 'Продажи и воронки', icon: 'Zap' },
+        { text: 'Автоматизация', icon: 'Bot' }
+      ]
     }
   ];
 
   const results = [
-    { metric: '250+', label: 'Довольных клиентов' },
-    { metric: '87%', label: 'Достигли целей' },
-    { metric: '15+', label: 'Лет опыта' },
-    { metric: '4.9★', label: 'Средний рейтинг' }
+    { metric: '250+', label: 'Довольных клиентов', icon: 'Users' },
+    { metric: '87%', label: 'Достигли целей', icon: 'Trophy' },
+    { metric: '15+', label: 'Лет опыта', icon: 'Award' },
+    { metric: '4.9★', label: 'Средний рейтинг', icon: 'Star' }
   ];
 
   const pricingPlans = [
@@ -40,11 +55,12 @@ const Index = () => {
       name: 'Консультация',
       price: '15 000',
       duration: '1 сессия',
+      icon: 'Lightbulb',
       features: [
-        'Разбор текущей ситуации',
-        'Определение точек роста',
-        'План действий на 30 дней',
-        'Поддержка в чате 7 дней'
+        { text: 'Разбор текущей ситуации', icon: 'Search' },
+        { text: 'Определение точек роста', icon: 'Target' },
+        { text: 'План действий на 30 дней', icon: 'Calendar' },
+        { text: 'Поддержка в чате 7 дней', icon: 'MessageCircle' }
       ],
       highlight: false
     },
@@ -52,13 +68,14 @@ const Index = () => {
       name: 'Трансформация',
       price: '85 000',
       duration: '3 месяца',
+      icon: 'Rocket',
       features: [
-        '12 индивидуальных сессий',
-        'Персональная стратегия',
-        'Домашние задания и практики',
-        'Безлимитная поддержка в чате',
-        'Доступ к закрытому сообществу',
-        'Бонус: мини-курс в подарок'
+        { text: '12 индивидуальных сессий', icon: 'Video' },
+        { text: 'Персональная стратегия', icon: 'Map' },
+        { text: 'Домашние задания и практики', icon: 'ClipboardList' },
+        { text: 'Безлимитная поддержка в чате', icon: 'MessageSquareText' },
+        { text: 'Доступ к закрытому сообществу', icon: 'Users2' },
+        { text: 'Бонус: мини-курс в подарок', icon: 'Gift' }
       ],
       highlight: true
     },
@@ -66,14 +83,15 @@ const Index = () => {
       name: 'VIP Сопровождение',
       price: '250 000',
       duration: '6 месяцев',
+      icon: 'Crown',
       features: [
-        'Безлимитные сессии',
-        'Полное бизнес-сопровождение',
-        'Личный куратор 24/7',
-        'Участие в закрытых мастермайндах',
-        'Нетворкинг с топ-экспертами',
-        'Все материалы и курсы',
-        'Гарантия результата'
+        { text: 'Безлимитные сессии', icon: 'Infinity' },
+        { text: 'Полное бизнес-сопровождение', icon: 'Briefcase' },
+        { text: 'Личный куратор 24/7', icon: 'UserCheck' },
+        { text: 'Участие в закрытых мастермайндах', icon: 'Brain' },
+        { text: 'Нетворкинг с топ-экспертами', icon: 'Network' },
+        { text: 'Все материалы и курсы', icon: 'FolderOpen' },
+        { text: 'Гарантия результата', icon: 'ShieldCheck' }
       ],
       highlight: false
     }
@@ -133,18 +151,20 @@ const Index = () => {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl" />
                 <CardHeader className="relative">
-                  <div className="w-16 h-16 mb-4 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center">
+                  <div className="w-16 h-16 mb-4 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center animate-float">
                     <Icon name={service.icon as any} size={32} className="text-primary-foreground" />
                   </div>
                   <CardTitle className="text-2xl font-heading">{service.title}</CardTitle>
                   <CardDescription className="text-base">{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="relative">
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <Icon name="CheckCircle2" size={18} className="text-primary mt-1 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
+                      <li key={i} className="flex items-start gap-3 group">
+                        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-all group-hover:scale-110">
+                          <Icon name={feature.icon as any} size={16} className="text-primary" />
+                        </div>
+                        <span className="text-sm mt-1">{feature.text}</span>
                       </li>
                     ))}
                   </ul>
@@ -170,9 +190,12 @@ const Index = () => {
             {results.map((result, idx) => (
               <Card 
                 key={idx}
-                className="text-center p-8 bg-gradient-to-br from-card to-card/50 border-2 border-primary/30 hover:border-primary transition-all hover:scale-105 animate-scale-in"
+                className="text-center p-8 bg-gradient-to-br from-card to-card/50 border-2 border-primary/30 hover:border-primary transition-all hover:scale-105 animate-scale-in group"
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center animate-float group-hover:scale-110 transition-transform">
+                  <Icon name={result.icon as any} size={32} className="text-primary-foreground" />
+                </div>
                 <div className="text-5xl md:text-6xl font-heading font-bold gradient-text mb-2">
                   {result.metric}
                 </div>
@@ -236,6 +259,9 @@ const Index = () => {
                 )}
                 <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl" />
                 <CardHeader className="relative">
+                  <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center animate-float">
+                    <Icon name={plan.icon as any} size={28} className="text-primary-foreground" />
+                  </div>
                   <CardTitle className="text-2xl font-heading mb-2">{plan.name}</CardTitle>
                   <div className="mb-4">
                     <span className="text-5xl font-heading font-bold gradient-text">{plan.price}</span>
@@ -246,9 +272,11 @@ const Index = () => {
                 <CardContent className="relative">
                   <ul className="space-y-3 mb-6">
                     {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <Icon name="CheckCircle2" size={18} className="text-primary mt-1 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
+                      <li key={i} className="flex items-start gap-3 group">
+                        <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-all group-hover:scale-110">
+                          <Icon name={feature.icon as any} size={14} className="text-primary" />
+                        </div>
+                        <span className="text-sm mt-0.5">{feature.text}</span>
                       </li>
                     ))}
                   </ul>
