@@ -53,7 +53,7 @@ const Index = () => {
   const pricingPlans = [
     {
       name: 'Консультация',
-      price: '15 000',
+      price: '25 000',
       duration: '1 сессия',
       icon: 'Lightbulb',
       features: [
