@@ -3,9 +3,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+import ContactModal from '@/components/ContactModal';
+import PrivacyModal from '@/components/PrivacyModal';
 
 const Index = () => {
   const [activeService, setActiveService] = useState(0);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
 
   const services = [
     {
@@ -116,7 +120,11 @@ const Index = () => {
             Помогаю коучам, авторам и экспертам создать сильный личный бренд и масштабировать доход через онлайн
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 transition-all hover:scale-105">
+            <Button 
+              size="lg" 
+              className="text-lg px-8 py-6 bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 transition-all hover:scale-105"
+              onClick={() => setIsContactModalOpen(true)}
+            >
               <Icon name="Rocket" size={20} className="mr-2" />
               Записаться на консультацию
             </Button>
@@ -287,6 +295,7 @@ const Index = () => {
                         : ''
                     }`}
                     variant={plan.highlight ? 'default' : 'outline'}
+                    onClick={() => setIsContactModalOpen(true)}
                   >
                     Выбрать тариф
                     <Icon name="ArrowRight" size={18} className="ml-2" />
@@ -313,7 +322,11 @@ const Index = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                <Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 transition-all hover:scale-105">
+                <Button 
+                  size="lg" 
+                  className="text-lg px-8 py-6 bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 transition-all hover:scale-105"
+                  onClick={() => setIsContactModalOpen(true)}
+                >
                   <Icon name="Calendar" size={20} className="mr-2" />
                   Записаться на консультацию
                 </Button>
@@ -350,15 +363,32 @@ const Index = () => {
             © 2024 Все права защищены
           </p>
           <div className="flex justify-center gap-6">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <button 
+              onClick={() => setIsPrivacyModalOpen(true)}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
               Политика конфиденциальности
-            </a>
+            </button>
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
               Оферта
             </a>
           </div>
         </div>
       </footer>
+
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)}
+        onPrivacyClick={() => {
+          setIsContactModalOpen(false);
+          setIsPrivacyModalOpen(true);
+        }}
+      />
+
+      <PrivacyModal
+        isOpen={isPrivacyModalOpen}
+        onClose={() => setIsPrivacyModalOpen(false)}
+      />
     </div>
   );
 };
